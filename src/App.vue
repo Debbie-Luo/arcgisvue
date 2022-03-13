@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <router-view/>
+    <!-- <MapInit></MapInit> -->
   </div>
 </template>
+<script>
+// import MapInit from "./components/MapInit.vue"
+
+export default {
+  // components: {
+  //   MapInit
+  // },
+  
+}
+</script>
 
 <style lang="scss">
 #app {
