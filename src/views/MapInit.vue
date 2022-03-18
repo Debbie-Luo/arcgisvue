@@ -4,19 +4,25 @@
 <script>
 import { setDefaultOptions, loadModules } from 'esri-loader'
 
+window.view;
+
 export default {
     mounted(){
-        this.load();
+        this.loadView();
     },
     methods:{
-        load(){
-            loadModules(["esri/views/SceneView","esri/Map"],{css:true}).then(([SceneView,Map])=>{
-                var map = new Map({
+        loadView(){
+            let options ={
+                url:'https://js.arcgis.com/4.22/',
+                css:'https://js.arcgis.com/4.22/esri/themes/light/main.css'
+            };
+            loadModules(["esri/views/SceneView","esri/Map"],options).then(([SceneView,Map])=>{
+                let map = new Map({
                     basemap: "satellite",
                     ground: "world-elevation",
                 });
 
-                var view = new SceneView({
+                let view = new SceneView({
                     map: map,
                     container: "viewDiv",
                     camera: {
@@ -25,8 +31,10 @@ export default {
                         tilt: 51.614,
                     },
                 });
+                window.view = view;
                 console.log("view:",view)
-
+            }).catch((err)=>{
+                console.log("创建地图失败错误原因:"+err)
             })
         }
 

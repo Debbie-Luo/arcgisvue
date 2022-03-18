@@ -1,79 +1,85 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import PageOne from "../components/PageOne.vue";
-import PageTwo from "../components/PageTwo.vue";
-import MapInit from "../components/MapInit.vue";
-import Index from "../components/Index.vue";
+// import Home from "../views/Home.vue";
+// import PageOne from "../components/PageOne.vue";
+// import PageTwo from "../components/PageTwo.vue";
+import Location from "../components/widgets/Location"
+// import MapInit from "../components/MapInit.vue";
+import Index from "../views/Index";
 
 Vue.use(VueRouter);
 // vue-router动态构建导航菜单
 const routes = [
-  {
-    path: "/",
-    name: "数据加载",
-    component: Index,
-    // redirect:"/PageOne",
-    children: [
-      {
-        path: "/PageOne",
-        name: "Portal数据",
-        component: PageOne,
-      },
-      {
-        path: "/PageTwo",
-        name: "URL数据",
-        component: PageTwo,
-      },
-      {
-        path: "/",
-        name: "本地矢量",
-        component: PageOne,
-      },
-      {
-        path: "/",
-        name: "倾斜摄影",
-        component: PageTwo,
-      },
-      {
-        path: "/MapInit",
-        name: "点云数据",
-        component: PageTwo,
-      },
-    ],
-  },
   // {
   //   path: "/",
-  //   name: "基本操作",
-  //   component: Home,
+  //   name: "数据加载",
+  //   component: Index,
+  //   // redirect:"/PageOne",
   //   children: [
   //     {
-  //       path: "/",
-  //       name: "定位",
-  //       component: Home,
+  //       path: "/PageOne",
+  //       name: "Portal数据",
+  //       component: PageOne,
+  //     },
+  //     {
+  //       path: "/PageTwo",
+  //       name: "URL数据",
+  //       component: PageTwo,
   //     },
   //     {
   //       path: "/",
-  //       name: "3D绘制",
-  //       component: Home,
+  //       name: "本地矢量",
+  //       component: PageOne,
   //     },
   //     {
   //       path: "/",
-  //       name: "3D量测",
-  //       component: Home,
+  //       name: "倾斜摄影",
+  //       component: PageTwo,
   //     },
   //     {
-  //       path: "/",
-  //       name: "几何查询",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "屏幕截图",
-  //       component: Home,
+  //       path: "/MapInit",
+  //       name: "点云数据",
+  //       component: PageTwo,
   //     },
   //   ],
   // },
+  {
+    path: "/",
+    name: "基本操作",
+    component: Index,
+    children: [
+      {
+        path: "/Location",
+        name: "位置参数",
+        component: Location,
+      },
+      // {
+      //   path: "/",
+      //   name: "定位",
+      //   component: Location,
+      // },
+      // {
+      //   path: "/",
+      //   name: "3D绘制",
+      //   component: Location,
+      // },
+      // {
+      //   path: "/",
+      //   name: "3D量测",
+      //   component: Location,
+      // },
+      // {
+      //   path: "/",
+      //   name: "几何查询",
+      //   component: Location,
+      // },
+      // {
+      //   path: "/",
+      //   name: "屏幕截图",
+      //   component: Location,
+      // },
+    ],
+  },
   // {
   //   path: "/PageOne",
   //   name: "空间分析",

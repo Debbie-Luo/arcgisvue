@@ -1,6 +1,6 @@
 <template>
 <el-container>
-  <el-header style="font-size: 20px Extra large;font-family: 'Helvetica Neue';">三维WebGIS功能展示系统(易智瑞版)</el-header>
+  <el-header style="font-size: 20px Extra large;font-family: 'Helvetica Neue';">三维WebGIS功能demo(易智瑞版)</el-header>
   <el-container>
     <el-aside style="width: 15%;">
         <el-menu @select="handleSelect" router :default-openeds="['1']">
