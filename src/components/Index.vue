@@ -1,17 +1,19 @@
+<!--
+ * @Author: luobr
+ * @Date: 2022-04-04 20:11:22
+ * @LastEditors: luobr
+ * @LastEditTime: 2022-04-10 13:18:37
+ * @Description: 
+-->
 <template>
 <el-container>
   <el-header style="font-size: 20px Extra large;font-family: 'Helvetica Neue';">三维WebGIS功能demo(易智瑞版)</el-header>
   <el-container>
     <el-aside style="width: 15%;">
-        <el-menu @select="handleSelect" router :default-openeds="['1']">
-        <el-submenu v-for="(item1,index1) in $router.options.routes" :key="index1" :index="index1+''">
-            <template slot="title">{{item1.name}}</template>
-            <el-menu-item v-for="(item2,index2) in item1.children" :key="index2" :index="item2.path+''" :class="$route.path == item2.path ? 'is-active':''">{{item2.name}}</el-menu-item>
-        </el-submenu>
-    </el-menu>
+        <AsideMenu></AsideMenu>
     </el-aside>
     <el-main style="padding:0px">
-        <MapInit></MapInit>
+        <Base></Base>
     </el-main>
   </el-container>
   <el-footer style="height:30px"></el-footer>
@@ -20,21 +22,18 @@
 </template>
 
 <script>
-import MapInit from "./MapInit.vue"
+import Base from "./Base.vue"
+import AsideMenu from "./widgets/AsideMenu.vue"
     export default {
         components: {
-            MapInit
+            Base,
+            AsideMenu
         },
         data() {
             return {
-                activeIndex: '1',
-                // activeIndex2: ['1']
             };
         },
         methods: {
-            handleSelect(key, keyPath) {
-                console.log(key, keyPath);
-            }
         }
     }
 </script>

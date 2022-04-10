@@ -1,11 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
 // import PageOne from "../components/PageOne.vue";
 // import PageTwo from "../components/PageTwo.vue";
-import Location from "../components/widgets/Location"
-// import MapInit from "../components/MapInit.vue";
-import Index from "../views/Index";
+import Index from "../components/Index.vue";
 
 Vue.use(VueRouter);
 // vue-router动态构建导航菜单
@@ -51,7 +48,7 @@ const routes = [
       {
         path: "/Location",
         name: "位置参数",
-        component: Location,
+        component: () =>import('../views/Location/index.vue'),
       },
       // {
       //   path: "/",
