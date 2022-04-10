@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-04 20:11:22
  * @LastEditors: luobr
- * @LastEditTime: 2022-04-10 14:13:09
+ * @LastEditTime: 2022-04-10 19:20:37
  * @Description: 
 -->
 <template>
@@ -43,7 +43,7 @@ export default {
                         tilt: 51.614,
                     },
                 });
-                ArcCIM.view = view;
+                // ArcCIM.view = view;
 
             }).catch((err)=>{
                 console.log("创建地图失败错误原因:"+err)

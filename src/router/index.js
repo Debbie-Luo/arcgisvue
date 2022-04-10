@@ -1,165 +1,24 @@
+/*
+ * @Author: luobr
+ * @Date: 2022-03-07 22:01:33
+ * @LastEditors: luobr
+ * @LastEditTime: 2022-04-10 19:19:17
+ * @Description: 
+ */
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import PageOne from "../components/PageOne.vue";
-// import PageTwo from "../components/PageTwo.vue";
-import Index from "../components/Index.vue";
 
 Vue.use(VueRouter);
+
 // vue-router动态构建导航菜单
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "数据加载",
-  //   component: Index,
-  //   // redirect:"/PageOne",
-  //   children: [
-  //     {
-  //       path: "/PageOne",
-  //       name: "Portal数据",
-  //       component: PageOne,
-  //     },
-  //     {
-  //       path: "/PageTwo",
-  //       name: "URL数据",
-  //       component: PageTwo,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "本地矢量",
-  //       component: PageOne,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "倾斜摄影",
-  //       component: PageTwo,
-  //     },
-  //     {
-  //       path: "/MapInit",
-  //       name: "点云数据",
-  //       component: PageTwo,
-  //     },
-  //   ],
-  // },
   {
-    path: "/",
-    name: "基本操作",
-    component: Index,
-    children: [
-      {
-        path: "/Location",
-        name: "位置参数",
-        component: () =>import('../views/Location/index.vue'),
-      },
-      // {
-      //   path: "/",
-      //   name: "定位",
-      //   component: Location,
-      // },
-      // {
-      //   path: "/",
-      //   name: "3D绘制",
-      //   component: Location,
-      // },
-      // {
-      //   path: "/",
-      //   name: "3D量测",
-      //   component: Location,
-      // },
-      // {
-      //   path: "/",
-      //   name: "几何查询",
-      //   component: Location,
-      // },
-      // {
-      //   path: "/",
-      //   name: "屏幕截图",
-      //   component: Location,
-      // },
-    ],
+      path: "/",
+      name: "视图加载",
+      component: ()=>import('../components/Index.vue'),//懒加载
+      children:[]
   },
-  // {
-  //   path: "/PageOne",
-  //   name: "空间分析",
-  //   component: PageOne,
-  //   children: [
-  //     {
-  //       path: "/",
-  //       name: "视线分析",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "视域分析",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "建筑剖切",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "高程剖面",
-  //       component: Home,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "/Index",
-  //   name: "三维模拟",
-  //   component: Index,
-  //   component: PageOne,
-  //   children: [
-  //     {
-  //       path: "/",
-  //       name: "日照分析",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "天气-雨",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "天气-雪",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "水波纹",
-  //       component: Home,
-  //     },
-  //   ],
-
-  // },
-  // {
-  //   path: "/PageOne",
-  //   name: "三维漫游",
-  //   component: PageOne,
-  //   children: [
-  //     {
-  //       path: "/",
-  //       name: "360环视",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "路径漫游",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "地上地下",
-  //       component: Home,
-  //     },
-  //     {
-  //       path: "/",
-  //       name: "位置参数",
-  //       component: Home,
-  //     },
-  //   ],
-  // },
+  
   // {
   //   path: "/about",
   //   name: "About",
