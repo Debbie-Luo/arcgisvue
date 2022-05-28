@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-04 20:11:22
  * @LastEditors: luobr
- * @LastEditTime: 2022-04-10 21:08:57
+ * @LastEditTime: 2022-04-12 23:57:02
  * @Description: 
 -->
 <template>
@@ -11,13 +11,16 @@
   <el-header style="font-size: 20px Extra large;font-family: 'Helvetica Neue';">三维WebGIS功能demo(易智瑞版)</el-header>
   <el-container>
     <el-aside style="width: 15%;">
-      <el-menu router >
+      <el-menu :default-active="activeIndex" @select="handleSelect" router>
          <AsideMenu :treeData="treeData"></AsideMenu>      
          <!--<component :is="curComponent"></component> -->
       </el-menu>
     </el-aside>
     <el-main style="padding:0px">
         <BaseMap></BaseMap>
+        <!-- <div class="cardBox"> -->
+          <!-- <router-view></router-view> -->
+          <!-- </div> -->
     </el-main>
   </el-container>
   <el-footer style="height:30px"></el-footer>
@@ -28,7 +31,7 @@
 <script>
 import BaseMap from "./BaseMap.vue"
 import AsideMenu from "./widgets/AsideMenu.vue";
-import treeData from "../mook/index.json";//模仿后台接口造的数据
+import treeData from "../mock/index.json";//模仿后台接口造的数据
 
 export default {
     components: {
@@ -39,10 +42,14 @@ export default {
     data() {
         return {
           treeData,
+          activeIndex:null,
         }
     },
     mounted(){
+      // console.log(this.activeIndex);
       console.log("treeData:",this.treeData)
+      this.activeIndex = this.$route.path.substring(1,this.$route.path.length);
+      console.log(this.activeIndex);
       // showWidgets(){
       //   var _this=this;
       //     // _this.curComponent = require(`@/widgets/${val.funcInvokeUrl}/index.vue`).default;
@@ -50,7 +57,11 @@ export default {
       
     },
     methods: {
-
+      handleSelect(index,keyPath){
+        console.log("11:",index,keyPath)
+        //PortalLoad 当前的index
+        // ['002acb27-e463-4e52-a185-e0b3a77462f1', '/PortalLoad'] //上一级的index和当前的index
+      }
       
     }
 }
@@ -88,6 +99,18 @@ export default {
     padding: 0px;
   }
     
+  .cardBox{
+    /* background-color: red; */
+    /* position:absolute; */
+    position: fixed;
+    z-index:1;
+    width:300px;
+    height:100px;
+    bottom:20%;
+    left:20%;
+    border:1px solid blue;
+    background-color:#FFFFFF;
+  }  
   .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
     line-height: 260px;
