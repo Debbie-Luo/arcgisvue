@@ -2,22 +2,19 @@
  * @Author: luobr
  * @Date: 2022-04-04 20:11:22
  * @LastEditors: luobr
- * @LastEditTime: 2022-04-10 19:20:37
+ * @LastEditTime: 2022-11-20 12:34:25
  * @Description: 
 -->
 <template>
-    <div id="viewDiv">
-        <!-- <cardDialog :visible.sync="visible"></cardDialog> -->
-    </div> 
+    <div id="viewDiv"></div> 
 </template>
 <script>
 import { setDefaultOptions, loadModules } from 'esri-loader'
-// import cardDialog from "./widgets/cardDialog.vue"
+
 
 export default {
     name:"Base",
     components:{
-        // cardDialog
     },
     mounted(){
         this.loadView();
@@ -46,7 +43,7 @@ export default {
                 // ArcCIM.view = view;
 
             }).catch((err)=>{
-                console.log("创建地图失败错误原因:"+err)
+                console.log("创建地图失败:"+err)
             })
         }
 

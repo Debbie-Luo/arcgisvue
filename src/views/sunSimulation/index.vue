@@ -1,12 +1,12 @@
 <!--
  * @Author: luobr
- * @Date: 2022-04-12 23:07:29
+ * @Date: 2022-04-12 23:04:46
  * @LastEditors: luobr
- * @LastEditTime: 2022-04-12 23:09:53
- * @Description: 
+ * @LastEditTime: 2022-11-19 14:09:16
+ * @Description: 日照模拟
 -->
 <template>
-  <div></div>
+  <div><h1>日照模拟</h1></div>
 </template>
 <script>
 export default {

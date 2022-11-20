@@ -1,13 +1,12 @@
+<!--
+ * @Author: luobr
+ * @Date: 2022-11-19 13:36:42
+ * @LastEditors: luobr
+ * @LastEditTime: 2022-11-19 14:03:42
+ * @Description: 位置参数
+-->
+
 <template>
-  <div class="maptools-view">
-    <el-card class="box-card">
-      <p>位置参数</p>
-      <!-- <div slot ="header" class="clearfix">
-        <span>位置参数</span>
-      </div> -->
-      <div></div>
-    </el-card>
-  </div>
 </template>
 
 <script>
