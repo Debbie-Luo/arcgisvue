@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-03-07 22:01:33
  * @LastEditors: luobr
- * @LastEditTime: 2022-11-19 17:58:17
+ * @LastEditTime: 2022-11-20 13:03:18
  * @Description: 
  */
 
@@ -35,7 +35,7 @@ const routes = [
   {
       path: "/",
       name: "视图加载",
-      component: ()=>import('../views/portalLoad'),//懒加载方式
+      component: ()=>import('../views/loadPortal'),//懒加载方式
       children:[],
       redict:'/index'
   },
@@ -59,7 +59,6 @@ treeData.map(({children})=>{
     })
   })
 })
-
 
 
 // 路由拦截
