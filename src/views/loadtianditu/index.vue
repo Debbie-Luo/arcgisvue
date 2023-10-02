@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-03 02:41:16
+ * @LastEditTime: 2023-10-03 02:49:40
  * @Description: 
 -->
 <template></template>
@@ -57,7 +57,11 @@ export default {
         console.log('添加天地图失败：',err);
       });
     },
-
+    /**
+     * @Author: luobr
+     * @description: 移除天地图
+     * @return {*}
+     */    
     removeTDWebTileLayer() {
       // 获取天地图图层的引用，可以根据图层 ID 或图层名称进行查找
       const tianDiTuLayerImg = map.findLayerById("tianDiTuLayerImg");
