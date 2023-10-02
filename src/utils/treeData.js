@@ -166,4 +166,17 @@ export default [{
         "path":"/groundView",
         component:'groundView',
     }
-]}]
+]},{
+    "id":"0de3b648-473c-46f9-81d5-4c9ff5934d11",
+    "menuType":"1",
+    "name":"底图加载",
+    "path":"/loadBaseMap",
+    "icon":"el-icon-view",
+    "children":[{
+        "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
+        "menuType":"2",
+        "name":"加载天地图",
+        "path":"/loadtianditu",
+        component:'loadtianditu',
+    },]
+}]

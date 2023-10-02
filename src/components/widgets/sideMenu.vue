@@ -31,7 +31,7 @@
 <script>
 
 export default {
-  name: "AsideMenu",
+  name: "sideMenu",
   props: {
     treeData: {
       type: Array,

@@ -8,14 +8,14 @@
 <template>
   <div id="app">
     <!-- <router-view></router-view> -->
-    <Index></Index>
+    <Base></Base>
   </div>
 </template>
 <script>
-import Index from "@/components/Index.vue"
+import Base from "@/components/Base.vue"
     export default {
       components:{
-        Index
+        Base
       },
         data() {
             return {

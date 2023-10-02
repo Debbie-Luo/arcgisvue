@@ -2,61 +2,57 @@
  * @Author: luobr
  * @Date: 2022-04-04 20:11:22
  * @LastEditors: luobr
- * @LastEditTime: 2022-11-20 12:34:25
- * @Description: 
+ * @LastEditTime: 2023-10-03 02:33:43
+ * @Description: 初始化地图
 -->
 <template>
-    <div id="viewDiv"></div> 
+    <div id="viewDiv"></div>
 </template>
 <script>
-import { setDefaultOptions, loadModules } from 'esri-loader'
-
 
 export default {
-    name:"Base",
-    components:{
+    name: "baseMap",
+    components: {
     },
-    mounted(){
+    mounted() {
+
+    },
+    beforeMount() {
         this.loadView();
     },
-    methods:{
-        loadView(){
-            let options ={
-                url:'https://js.arcgis.com/4.22/',
-                css:'https://js.arcgis.com/4.22/esri/themes/light/main.css'
-            };
-            loadModules(["esri/views/SceneView","esri/Map"],options).then(([SceneView,Map])=>{
-                let map = new Map({
-                    basemap: "satellite",
-                    ground: "world-elevation",
-                });
-
-                let view = new SceneView({
-                    map: map,
-                    container: "viewDiv",
-                    camera: {
-                        position: [113.257, 35.173, 931],
-                        heading: 356.073,
-                        tilt: 51.614,
-                    },
-                });
-                // ArcCIM.view = view;
-
-            }).catch((err)=>{
-                console.log("创建地图失败:"+err)
+    methods: {
+        loadView() {
+            return new Promise((resolve, reject) => {
+                this.$loadModules(["esri/views/SceneView", "esri/Map"]).then(([SceneView, Map]) => {
+                    let map = new Map({
+                        basemap: "streets-night-vector",
+                        ground: "world-elevation",
+                    });
+                    let view = new SceneView({
+                        map: map,
+                        container: "viewDiv",
+                        camera: {
+                            position: [113.257, 35.173, 931],
+                            // heading: 356.073,
+                            // tilt: 51.614,
+                        },
+                    });
+                    ArcCIM.view = view;
+                    this.$emit("mapLoaded"); // 触发自定义事件
+                    resolve(view); // 在生成地图完成后执行 resolve,通知 Promise已经完成
+                }).catch((err) => {
+                    reject(err);
+                })
             })
-        }
-
+        },
     }
-    
 }
 </script>
 <style scoped lang="scss">
- #viewDiv {
-    padding: 0;
-    margin: 0;
+#viewDiv {
+    position: relative;
     height: 100%;
     width: 100%;
-    }
+}
 </style>
 
