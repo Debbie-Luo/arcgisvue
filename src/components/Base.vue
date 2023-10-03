@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-04 20:11:22
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-03 02:33:59
+ * @LastEditTime: 2023-10-04 00:22:10
  * @Description: 
 -->
 <template>
@@ -139,11 +139,11 @@ export default {
     flex: 1;
     position: absolute;
     /* 修改为绝对定位 */
-    top: 0;
+    // top: 0;
     /* 将内容容器置于地图容器的上方 */
-    left: 0;
+    left: 10px;
     // right: 0;
-    // bottom: 0;
+    bottom: 40px;
     z-index: 1;
     // pointer-events: none;
   }

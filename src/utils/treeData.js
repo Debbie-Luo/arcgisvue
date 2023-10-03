@@ -1,7 +1,7 @@
 export default [{   
     "id":"002acb27-e463-4e52-a185-e0b3a77462f1",
     "menuType":"1",
-    "name":"数据加载",
+    "name":"数据源加载",
     "path":"/loadPortal",
     "icon":"el-icon-upload",
     "children":[{
@@ -34,6 +34,13 @@ export default [{
         "name":"点云数据",
         "path":"/loadPointCloud",
         component:'loadPointCloud',
+    },
+    {
+        "id":"0463faf8-4299-452e-901f-9e8ac317f131",
+        "menuType":"2",
+        "name":"多媒体资源",
+        "path":"/loadMedia",
+        component:'loadMedia',
     }
 ]},
 {
@@ -169,9 +176,9 @@ export default [{
 ]},{
     "id":"0de3b648-473c-46f9-81d5-4c9ff5934d11",
     "menuType":"1",
-    "name":"底图加载",
-    "path":"/loadBaseMap",
-    "icon":"el-icon-view",
+    "name":"图层加载",
+    "path":"/loadLayer",
+    "icon":"el-icon-location-information",
     "children":[{
         "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
         "menuType":"2",

@@ -2,12 +2,12 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-03 02:49:40
+ * @LastEditTime: 2023-10-04 00:01:44
  * @Description: 
 -->
 <template></template>
 <script>
-let map = ArcCIM.view.map;
+let map;
 export default {
   name: "loadLocalShp",
   props: {},
@@ -18,6 +18,7 @@ export default {
     }
   },
   mounted() {
+    map = ArcCIM.view.map;
     this.loadTDWebTileLayer();
   },
   beforeDestroy() {
