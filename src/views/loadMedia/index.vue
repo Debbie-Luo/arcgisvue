@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-04 01:04:33
+ * @LastEditTime: 2023-10-04 20:56:12
  * @Description: 加载已知坐标范围的图片
 -->
 <template>
@@ -20,7 +20,7 @@
     </div>
 </template>
 <script>
-let map;
+let map,view;
 export default {
     name: "loadImg",
     data() {
@@ -32,6 +32,7 @@ export default {
     beforeMount() {      
     },
     mounted() {
+        view = ArcCIM.view;
         map = ArcCIM.view.map;
         this.handleChange('img');
     },
@@ -105,10 +106,13 @@ export default {
                         opacity: that.formatTooltip(that.opacity),
                         id:'media_layer'
                     });
-                    // 跳转到当前图层的范围
-
-
                     map.layers.add(layer);
+                    // 跳转到当前图层的范围
+                    view.when(function() {
+                        layer.when(function() {//es6语法
+                            view.goTo(layer.fullExtent);
+                        })
+                    });
                 }).catch(err=>{
                     console.log(err);
                 })

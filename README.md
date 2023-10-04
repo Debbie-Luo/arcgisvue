@@ -30,7 +30,7 @@ npm run build
 官网沙盒：https://developers.arcgis.com/javascript/latest/sample-code/
 
 
-本demo暂不接入后台，流程很简单，能跑起来就能看到效果，采用Vue-cli2搭建，我的CSS学的不是很好，凑活着可以看效果，如果有美感比较看不下去的同学，可以顺道改改样式，本人也不介意。
+本demo暂不接入后台，流程很简单，能跑起来就能看到效果，采用Vue-cli2搭建， ArcGIS API for JavaScript的一些常用的demo，我的CSS学的不是很好，凑活着可以看效果，如果有美感比较看不下去的同学，可以顺道改改样式。
 希望在看的你有三剑客（html、css或javascript）的基础，最好能看懂Vue2的语法，推荐Vue的官网，不然的话可以去BiliBili刷刷视频，不要嫌我啰嗦，这是很多初学者经常在问的。
 
 ## 图层加载
@@ -62,6 +62,10 @@ WebTileLayer 类提供了加载 Web 切片地图服务所需的功能和配置�
 
 
 > 加载点云数据
+
+加载点云数据有两种方式，一种用url的方式，见![Alt text](./mdImg/点云url获取.png)一种用portalItemid的方式，见![Alt text](./mdImg/加载点云的portalid值.png.png)
+
+点云图层的渲染
 
 
 
