@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-04 00:38:46
+ * @LastEditTime: 2023-10-04 01:04:33
  * @Description: 加载已知坐标范围的图片
 -->
 <template>
@@ -133,13 +133,6 @@ export default {
   padding: 10px;
   background-color: #fff;
   width: 220px;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 10px;
 }
 
 .select_container {
