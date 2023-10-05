@@ -22,26 +22,7 @@ export default [{
         "name":"本地矢量",
         "path":"/loadLocalShp",
         component:'loadLocalShp',
-    },{
-        "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6c",
-        "menuType":"2",
-        "name":"倾斜摄影",
-        "path":"/loadOSGB",
-        component:'loadOSGB',
-    },{
-        "id":"0463faf8-4299-452e-901f-9e8ac317f130",
-        "menuType":"2",
-        "name":"点云数据",
-        "path":"/loadPointCloud",
-        component:'loadPointCloud',
     },
-    {
-        "id":"0463faf8-4299-452e-901f-9e8ac317f131",
-        "menuType":"2",
-        "name":"多媒体资源",
-        "path":"/loadMedia",
-        component:'loadMedia',
-    }
 ]},
 {
     "id":"0530a60c-cfd7-4279-8a9d-6f4756eb3295",
@@ -182,8 +163,27 @@ export default [{
     "children":[{
         "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
         "menuType":"2",
-        "name":"加载天地图",
+        "name":"天地图",
         "path":"/loadtianditu",
         component:'loadtianditu',
-    },]
+    },{
+        "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6c",
+        "menuType":"2",
+        "name":"倾斜摄影",
+        "path":"/loadOSGB",
+        component:'loadOSGB',
+    },{
+        "id":"0463faf8-4299-452e-901f-9e8ac317f130",
+        "menuType":"2",
+        "name":"点云数据",
+        "path":"/loadPointCloud",
+        component:'loadPointCloud',
+    },
+    {
+        "id":"0463faf8-4299-452e-901f-9e8ac317f131",
+        "menuType":"2",
+        "name":"多媒体资源",
+        "path":"/loadMedia",
+        component:'loadMedia',
+    }]
 }]

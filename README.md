@@ -22,16 +22,18 @@ npm run build
 ## 说明
  
 时光飞速，自从毕业我也好久没怎么用ArcGIS了，后台也确实有很多小伙伴在私信要源码，正好最近放假抽空整理一下，慢慢完善过程中，不定期更新，已完成的部分，我会补充放在md的下面，同时不断补充这份文档说明，每份案例因为个人的思考有限，没办法考虑的很全，所以欢迎小伙伴的补充或者欢迎私聊我重新添加新需求~~
-距离我的毕设时间已经过了很久，以前发布的服务很多已经不能再用了，因为三维的服务需要托管到Portal，现在的我也已经失去了当年的学生免费权限，如果哪天再能有免费发布服务的机会，后续开个课都没有问题，现在的话你们有需要可以看我的demo和借鉴ArcGIS的官网，官网的教程已经很全面了，我的大多数也是来源于官网的启发。后续，我也会在官网的基础上对一部分内容进行整合，
-本次demo如果没有对应的服务我会借鉴ArcGIS官网的服务。
+距离我的毕设时间已经过了很久，以前发布的服务很多已经不能再用了，因为三维的服务需要托管到Portal，现在的我也已经失去了当年的学生免费权限，如果哪天再能有免费发布服务的机会，后续开个课都没有问题，现在的话你们有需要可以看我的demo和借鉴ArcGIS的官网，官网的教程已经很全面了，我的demo大多数也来源于官网的启发。后续我也会在官网的基础上对一部分内容进行整合，本次demo如果没有对应的服务我会借鉴ArcGIS官网的服务。
 
-官网API文档：https://developers.arcgis.com/javascript/latest/api-reference/
+[官网API文档](https://developers.arcgis.com/javascript/latest/api-reference/)
 
-官网沙盒：https://developers.arcgis.com/javascript/latest/sample-code/
+[官网沙盒](https://developers.arcgis.com/javascript/latest/sample-code/)
 
 
 本demo暂不接入后台，流程很简单，能跑起来就能看到效果，采用Vue-cli2搭建， ArcGIS API for JavaScript的一些常用的demo，我的CSS学的不是很好，凑活着可以看效果，如果有美感比较看不下去的同学，可以顺道改改样式。
 希望在看的你有三剑客（html、css或javascript）的基础，最好能看懂Vue2的语法，推荐Vue的官网，不然的话可以去BiliBili刷刷视频，不要嫌我啰嗦，这是很多初学者经常在问的。
+
+## 数据源加载
+
 
 ## 图层加载
 
@@ -51,26 +53,11 @@ npm run build
 
 WebTileLayer 类提供了加载 Web 切片地图服务所需的功能和配置选项，包括指定地图服务的 URL、切片模板、切片大小、切片样式等。通过使用 WebTileLayer 类，可以直接加载天地图的切片数据，并将其作为图层添加到 ArcGIS 的地图中进行显示。
 
-本示例中加载了影像和矢量的天地图底图，方便
+本示例中加载了影像和矢量的天地图底图，方便读者更直观的查看。
 
-![Alt text](./mdImg/加载天地图.png)
-
-## 数据源加载
-
-> 加载OSGB倾斜摄影数据
-
-
-
-> 加载点云数据
-
-加载点云数据有两种方式，一种用url的方式，见![Alt text](./mdImg/点云url获取.png)一种用portalItemid的方式，见![Alt text](./mdImg/加载点云的portalid值.png.png)
-
-点云图层的渲染
-
-
+☞![Alt text](./mdimg/加载天地图.png)
 
 > MediaLayer 加载自定义坐标范围的多媒体资源
-
 
 MediaLayer 是一种特殊的图层类型，用于显示多媒体资源，如静态图片、动态图片（GIF）、视频、音频、卫星图像、航拍照片、实地摄影和监控视频等。将多媒体元素与地理位置相关联，并在地图上进行显示，从而实现地理信息的可视化呈现。
 
@@ -88,7 +75,34 @@ MediaLayer 是一种特殊的图层类型，用于显示多媒体资源，如静
 
 * 交互式操作：MediaLayer 可以与其他地图操作和工具进行交互，例如缩放、平移、旋转等。这使得用户可以在地图上自由操作和浏览多媒体内容。
 
-![Alt text](./mdImg/加载多媒体.png)
+☞ ![Alt text](./mdimg/加载多媒体.png)
+
+> IntegratedMeshLayer 加载OSGB倾斜摄影数据
+
+倾斜摄影数据是一种用于创建高分辨率三维模型的图像数据集合。它通常由飞行器（如飞机、无人机或直升机）在不同角度和方向上捕获的斜向图像组成。这些图像提供了地面或建筑物的多个视角，从而可以生成高精度的三维模型和倾斜摄影图。
+
+发布倾斜摄影数据
+
+
+加载倾斜摄影图层
+
+
+对倾斜摄影数据的处理：裁剪、掩膜、压平
+
+
+
+> PointCloudLayer 加载点云数据
+
+加载点云数据有两种方式，一种用url的方式，见![Alt text](./mdimg/点云url获取.png)一种用portalItemid的方式，见![Alt text](./mdimg/加载点云的portal值.png)
+
+点云图层的渲染(分类型)
+
+* PointCloudRGBRenderer
+* PointCloudUniqueValueRenderer
+* PointCloudStretchRenderer
+* PointCloudClassBreaksRenderer
+
+☞
 
 
 
