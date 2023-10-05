@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-04 20:56:12
+ * @LastEditTime: 2023-10-06 03:52:44
  * @Description: 加载已知坐标范围的图片
 -->
 <template>
@@ -43,10 +43,21 @@ export default {
         
     },
     methods: {
-        // 滑动条格式化
+        /**
+         * @Author: luobr
+         * @description: 滑动条格式化
+         * @param {*} val
+         * @return {*}
+         */        
         formatTooltip(val) {
             return val / 100;
         },
+        /**
+         * @Author: luobr
+         * @description: 修改图层透明度
+         * @param {*} value
+         * @return {*}
+         */        
         changeLayerOpacity(value){
             // 实现图层的控制
             const mediaLayer = map.findLayerById("media_layer");
@@ -54,7 +65,12 @@ export default {
                 mediaLayer.opacity = this.formatTooltip(value);
             }
         },
-        // 加载多媒体资源
+        /**
+         * @Author: luobr
+         * @description: 加载多媒体资源
+         * @param {*} value
+         * @return {*}
+         */        
         handleChange(value) {
             let that = this;
             this.removeLayer();
@@ -117,7 +133,11 @@ export default {
                     console.log(err);
                 })
         },
-        // 移除图层
+        /**
+         * @Author: luobr
+         * @description: 移除图层
+         * @return {*}
+         */
         removeLayer() {
             const mediaLayer = map.layers.find(layer=>layer.id==="media_layer");
             if(mediaLayer) {

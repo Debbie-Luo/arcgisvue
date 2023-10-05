@@ -23,26 +23,46 @@ export default [{
         "path":"/loadLocalShp",
         component:'loadLocalShp',
     },
-]},
+]},{
+    "id":"0de3b648-473c-46f9-81d5-4c9ff5934d11",
+    "menuType":"1",
+    "name":"图层加载",
+    "path":"/loadLayer",
+    "icon":"el-icon-location-information",
+    "children":[{
+        "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
+        "menuType":"2",
+        "name":"天地图",
+        "path":"/loadtianditu",
+        component:'loadtianditu',
+    },{
+        "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6c",
+        "menuType":"2",
+        "name":"倾斜摄影",
+        "path":"/loadOSGB",
+        component:'loadOSGB',
+    },{
+        "id":"0463faf8-4299-452e-901f-9e8ac317f130",
+        "menuType":"2",
+        "name":"点云数据",
+        "path":"/loadPointCloud",
+        component:'loadPointCloud',
+    },
+    {
+        "id":"0463faf8-4299-452e-901f-9e8ac317f131",
+        "menuType":"2",
+        "name":"多媒体资源",
+        "path":"/loadMedia",
+        component:'loadMedia',
+    }]
+},
 {
     "id":"0530a60c-cfd7-4279-8a9d-6f4756eb3295",
     "menuType":"1",
-    "name":"基本操作",
+    "name":"空间几何",
     "path":"/cameraParam",
     "icon":"el-icon-s-order",
     "children":[{
-        "id":"059fa89c-7311-4690-ba9b-ffbbe2818a1a",
-        "menuType":"2",
-        "name":"位置参数",
-        "path":"/cameraParam",
-        component:'cameraParam',
-    },{
-        "id":"061619f9-c9ed-441e-82d5-f4a1d64915c3",
-        "menuType":"2",
-        "name":"定位",
-        "path":"/location",
-        component:'location',
-    },{
         "id": "06cab70d-1fe3-463d-a3cd-d7ec5541243d",
         "menuType":"2",
         "name":"3D绘制",
@@ -136,6 +156,18 @@ export default [{
     "path":"/aroundView",
     "icon":"el-icon-view",
     "children":[{
+        "id":"059fa89c-7311-4690-ba9b-ffbbe2818a1a",
+        "menuType":"2",
+        "name":"位置参数",
+        "path":"/cameraParam",
+        component:'cameraParam',
+    },{
+        "id":"061619f9-c9ed-441e-82d5-f4a1d64915c3",
+        "menuType":"2",
+        "name":"定位",
+        "path":"/location",
+        component:'location',
+    },{
         "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
         "menuType":"2",
         "name":"360环视",
@@ -154,36 +186,4 @@ export default [{
         "path":"/groundView",
         component:'groundView',
     }
-]},{
-    "id":"0de3b648-473c-46f9-81d5-4c9ff5934d11",
-    "menuType":"1",
-    "name":"图层加载",
-    "path":"/loadLayer",
-    "icon":"el-icon-location-information",
-    "children":[{
-        "id":"0ecacc9a-2f55-4e41-8b24-d5f6a68829cf",
-        "menuType":"2",
-        "name":"天地图",
-        "path":"/loadtianditu",
-        component:'loadtianditu',
-    },{
-        "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6c",
-        "menuType":"2",
-        "name":"倾斜摄影",
-        "path":"/loadOSGB",
-        component:'loadOSGB',
-    },{
-        "id":"0463faf8-4299-452e-901f-9e8ac317f130",
-        "menuType":"2",
-        "name":"点云数据",
-        "path":"/loadPointCloud",
-        component:'loadPointCloud',
-    },
-    {
-        "id":"0463faf8-4299-452e-901f-9e8ac317f131",
-        "menuType":"2",
-        "name":"多媒体资源",
-        "path":"/loadMedia",
-        component:'loadMedia',
-    }]
-}]
+]}]

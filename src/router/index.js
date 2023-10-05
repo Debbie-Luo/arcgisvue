@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-03-07 22:01:33
  * @LastEditors: luobr
- * @LastEditTime: 2022-11-20 13:03:18
+ * @LastEditTime: 2023-10-06 02:29:48
  * @Description: 
  */
 
@@ -39,15 +39,6 @@ const routes = [
       children:[],
       redict:'/index'
   },
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  // },
 ];
 // 动态生成路由数据
 treeData.map(({children})=>{

@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-03-07 22:01:33
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-03 13:27:57
+ * @LastEditTime: 2023-10-06 02:36:01
  * @Description: 
  */
 import Vue from 'vue'
@@ -20,6 +20,11 @@ Vue.prototype.$loadModules = loadModules;
 // 这里暂时先用在线资源
 // setDefaultOptions({url: 'http://localhost/arcgis_js_api/4.22/init.js'})
 loadCss('https://js.arcgis.com/4.27/esri/themes/light/main.css');
+
+// 如果有自己的webscene，可以在此配置地址
+// this.$loadModules(["esri/config"]).then(([esriConfig])=>{
+//   esriConfig.portalUrl = "https://edutrial.geoscene.cn/geoscene/";
+// })
 
 window.ArcCIM = {};
 //使用elementUI
