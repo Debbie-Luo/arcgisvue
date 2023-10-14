@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-06 03:52:44
+ * @LastEditTime: 2023-10-06 04:19:54
  * @Description: 加载已知坐标范围的图片
 -->
 <template>
@@ -33,7 +33,7 @@ export default {
     },
     mounted() {
         view = ArcCIM.view;
-        map = ArcCIM.view.map;
+        map = view.map;
         this.handleChange('img');
     },
     beforeDestroy() {

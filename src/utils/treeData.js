@@ -36,6 +36,13 @@ export default [{
         "path":"/loadtianditu",
         component:'loadtianditu',
     },{
+        "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6b",
+        "menuType":"2",
+        "name":"动态图层",
+        "path":"/loadMapImageLayer",
+        component:'loadMapImageLayer',
+    },
+    {
         "id":"0314e244-f3cc-4262-be6b-f8a66bee2a6c",
         "menuType":"2",
         "name":"倾斜摄影",
