@@ -58,6 +58,13 @@ export default [{
     {
         "id":"0463faf8-4299-452e-901f-9e8ac317f131",
         "menuType":"2",
+        "name":"BIM模型",
+        "path":"/loadBIM",
+        component:'loadBIM',
+    },
+    {
+        "id":"0463faf6-4299-452e-901f-9e8ac317f131",
+        "menuType":"2",
         "name":"多媒体资源",
         "path":"/loadMedia",
         component:'loadMedia',
