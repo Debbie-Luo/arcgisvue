@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:07:53
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-14 13:48:51
+ * @LastEditTime: 2023-10-27 11:21:22
  * @Description: 加载动态图层
 -->
 <template>
@@ -77,14 +77,22 @@
                 mediaLayer.opacity = this.formatTooltip(value);
             }
         },
-        // 切换图层
+        /**
+         * @Author: luobr
+         * @description: 切换图层
+         * @return {*}
+         */        
         handlecheckedsubLayer(){
             const visibleSublayers = this.checkLayer.map(layer => layer.id); 
             this.currentlayer.sublayers.forEach(sublayer => {
                 sublayer.visible = visibleSublayers.includes(sublayer.id);
             });
         },
-        // 改变人口表达式
+        /**
+         * @Author: luobr
+         * @description: 改变人口表达式
+         * @return {*}
+         */        
         changepopulationValue(){
             const cities = this.currentlayer.findSublayerById(0);
             cities.definitionExpression = "pop2000 > " + this.population;
@@ -100,39 +108,42 @@
             style: "solid"
           };
         },
-        // 渲染图层
+        
+        /**
+         * @Author: luobr
+         * @description: 渲染图层
+         * @return {*}
+         */        
         rendererlayer(){
         const renderer = {
-            type: "class-breaks", // autocasts as new ClassBreaksRenderer()
-            field: "States.POP00_SQMI",
-            normalizationField: "States.POP00_SQMI",
-            normalizationType: "field",
-            classBreakInfos: [
-                {
-                minValue: 0,
-                maxValue: 2000,
-                symbol: this.createSymbol("#f8e3c2"),
-                label: "0 - 1.26%"
-                },
-                {
-                minValue: 2001,
-                maxValue: 4000,
-                symbol: this.createSymbol("#e5998c"),
-                label: "1.26 - 2.6%"
-                },
-                {
-                minValue: 4001,
-                maxValue: 6000,
-                symbol: this.createSymbol("#d86868"),
-                label: "2.6 - 15%"
-                },
-                {
-                minValue: 6001,
-                maxValue: 9000,
-                symbol: this.createSymbol("#9b3557"),
-                label: "15 - 50%"
-                }
-            ]
+          type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+          field: "States.POP00_SQMI",
+          normalizationField: "States.POP00_SQMI",
+          normalizationType: "field",
+          classBreakInfos: [{
+            minValue: 0,
+            maxValue: 2000,
+            symbol: this.createSymbol("#f8e3c2"),
+            label: "0 - 1.26%"
+            },
+            {
+            minValue: 2001,
+            maxValue: 4000,
+            symbol: this.createSymbol("#e5998c"),
+            label: "1.26 - 2.6%"
+            },
+            {
+            minValue: 4001,
+            maxValue: 6000,
+            symbol: this.createSymbol("#d86868"),
+            label: "2.6 - 15%"
+            },
+            {
+            minValue: 6001,
+            maxValue: 9000,
+            symbol: this.createSymbol("#9b3557"),
+            label: "15 - 50%"
+            }]
         };
         const stateLayer = this.currentlayer.allSublayers.find(function(sublayer){
             return sublayer.title === 'States';
@@ -140,7 +151,11 @@
         console.log('stateLayer:',  stateLayer);
         stateLayer.renderer = renderer;
         },
-        // 加载动态图层  
+        /**
+         * @Author: luobr
+         * @description:  加载动态图层  
+         * @return {*}
+         */        
         loadDamicLayer() {
         let that = this;
         this.$loadModules(["esri/layers/MapImageLayer"]).then(([MapImageLayer])=>{
@@ -165,12 +180,17 @@
             });
             })
         },
+        /**
+         * @Author: luobr
+         * @description: 移除图层
+         * @return {*}
+         */        
         removeLayer() {
-            const layer = map.findLayerById("DinamicLayer");
-            if (layer) {
-                map.remove(layer);
-            }
-        }
+          const layer = map.findLayerById("DinamicLayer");
+          if (layer) {
+              map.remove(layer);
+          }
+      }
     }
   }
   </script>
