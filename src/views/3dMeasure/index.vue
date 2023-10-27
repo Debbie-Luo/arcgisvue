@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:05:54
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-27 14:41:30
+ * @LastEditTime: 2023-10-27 15:07:57
  * @Description: 3D 测量
 -->
 <template>
@@ -83,11 +83,13 @@ export default {
             view: view,
           });
           activeWidget.viewModel.start();
+          view.ui.add(activeWidget, "bottom-right");
         } else if(type === 'area'){
           activeWidget = new AreaMeasurement3D({
             view: view,
           });
           activeWidget.viewModel.start();
+          view.ui.add(activeWidget, "bottom-right");
         } else {
           this.removeMeasure(this.isMeasure);
         }
@@ -118,8 +120,9 @@ export default {
     removeMeasure(type){
       if(type){
           if(activeWidget) {
-          activeWidget.destroy();
-          activeWidget = null;
+            view.ui.remove(activeWidget);
+            activeWidget.destroy();
+            activeWidget = null;
         }
       } else{
         if(activeWidget) {
@@ -135,7 +138,9 @@ export default {
      * @return {*}
      */    
     switchMeasure(){
+      this.removeMeasure(this.isMeasure);
       this.isMeasure =! this.isMeasure;
+      
     },
     /**
      * @Author: luobr

@@ -88,6 +88,12 @@ export default [{
         "path":"/geometryQuery",
         component:'geometryQuery',
     },{
+        "id":"093dd218-f04e-4b56-88af-a76a36cb9e4c",
+        "menuType":"2",
+        "name":"路径规划",
+        "path":"/routeQuery",
+        component:'routeQuery',
+    },{
         "id":"09698328-7437-471f-a9a9-fc55fbdbd722",
         "menuType":"2",
         "name":"屏幕截图",
