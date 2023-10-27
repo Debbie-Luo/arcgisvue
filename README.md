@@ -122,7 +122,52 @@ MediaLayer 是一种特殊的图层类型，用于显示多媒体资源，如静
 
 ☞
 
+## 空间几何
 
+> 3D量测
+
+测量工具是一个现成的微件类，api在`esri/widgets/`下，可以根据需要进行配置和自定义。
+包含：`AreaMeasurement2D、AreaMeasurement3D、DirectLineMeasurement2D、DirectLineMeasurement3D`等；
+`AreaMeasurement2D、AreaMeasurement3D` 主要测量面积和周长，`DirectLineMeasurement2D`主要测量直线距离，`DirectLineMeasurement3D`主要测量直线、水平、垂直距离。
+
+目前在三维视图下选取`AreaMeasurement3D、DirectLineMeasurement3D`，二维可以选取`AreaMeasurement2D、DirectLineMeasurement2D`；也可以直接选择`Measurement`这个微件，其中包含了面积和距离测量。view.ui.add() 方法将测量工具添加到地图视图的指定位置。
+
+编写代码时，建议参考官方文档和示例代码，以获取准确的 API 用法和配置信息。
+
+```javascript
+    let activeWidget;
+    if(type === 'distance'){
+        activeWidget = new DirectLineMeasurement3D({
+            view: view,
+        });
+        activeWidget.viewModel.start();
+    } else if(type === 'area'){
+        activeWidget = new AreaMeasurement3D({
+            view: view,
+        });
+        activeWidget.viewModel.start();
+    } else {
+        this.removeMeasure();
+    }
+```
+
+```javascript
+const measurement = new Measurement({
+  view: view
+});
+// 2D
+// measurement.activeTool = "distance"||'area';
+// 3D
+measurement.activeTool = 'direct-line'||'area';
+view.ui.add(measurement, "bottom-right");
+
+```
+效果如下：
+
+
+![直线测量](./mdimg/直线测量.png)
+
+![面积测量](./mdimg//面积测量.png)
 
 
 

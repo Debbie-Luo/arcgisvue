@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:08:30
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-04 21:51:14
+ * @LastEditTime: 2023-10-27 11:18:26
  * @Description: 加载点云
 -->
 <template>
@@ -14,7 +14,8 @@ export default {
   props: {},
   data() {
       return {
-       
+        pt_url:"https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer",
+        PointCloudLayer:'pointcloudlayer'
       }
   },
   beforeMount(){
@@ -41,8 +42,8 @@ export default {
       this.$loadModules(["esri/layers/PointCloudLayer"]).then(([PointCloudLayer])=>{
         // 1、url 加载方式
         let layer = new PointCloudLayer({
-          url: "https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer",
-          id: 'pointcloudlayer',
+          url: this.pt_url,
+          id: this.PointCloudLayer,
         });
         // 2、portalItem加载方式
         // const layer = new PointCloudLayer({
@@ -71,7 +72,7 @@ export default {
      * @return {*}
      */    
     removepointCloudLayer() {
-      const pointcloudlayer = map.findLayerById("pointcloudlayer");
+      const pointcloudlayer = map.findLayerById(this.PointCloudLayer);
       if (pointcloudlayer) {
         map.remove(pointcloudlayer);
       }

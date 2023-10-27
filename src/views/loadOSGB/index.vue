@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:08:03
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-06 00:32:37
+ * @LastEditTime: 2023-10-27 11:09:22
  * @Description: 加载OSGB
 -->
 <template>
@@ -14,7 +14,8 @@ export default {
   props: {},
   data() {
       return {
-       
+       layerName:'OSGBLayer',
+       osgb_url:"https://tiles.arcgis.com/tiles/cFEFS0EWrhfDeVw9/arcgis/rest/services/Buildings_Frankfurt_2021/SceneServer"
       }
   },
   beforeMount(){
@@ -40,8 +41,8 @@ export default {
     loadOSGB() {
       this.$loadModules(["esri/layers/IntegratedMeshLayer"]).then(([IntegratedMeshLayer])=>{
         var layer = new IntegratedMeshLayer({
-          url: "https://tiles.arcgis.com/tiles/cFEFS0EWrhfDeVw9/arcgis/rest/services/Buildings_Frankfurt_2021/SceneServer",
-          id:'OSGBLayer'
+          url: this.osgb_url,
+          id:this.layerName
         });
         map.add(layer);
         // 跳转到当前图层的范围
@@ -57,7 +58,7 @@ export default {
      * @return {*}
      */    
     removeOSGBLayer() {
-      const layer = map.findLayerById("OSGBLayer");
+      const layer = map.findLayerById(this.layerName);
       if (layer) {
         map.remove(layer);
       }

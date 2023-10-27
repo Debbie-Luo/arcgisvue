@@ -2,7 +2,7 @@
  * @Author: luobr
  * @Date: 2022-04-12 23:04:19
  * @LastEditors: luobr
- * @LastEditTime: 2023-10-06 04:19:54
+ * @LastEditTime: 2023-10-27 11:08:22
  * @Description: 加载已知坐标范围的图片
 -->
 <template>
@@ -27,6 +27,9 @@ export default {
         return {
             mediaValue:'img',
             opacity: 100,
+            media_layer:'media_layer',
+            img_url:"./img/fujian230905.png",
+            video_url:"https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4"
         }
     },
     beforeMount() {      
@@ -60,7 +63,7 @@ export default {
          */        
         changeLayerOpacity(value){
             // 实现图层的控制
-            const mediaLayer = map.findLayerById("media_layer");
+            const mediaLayer = map.findLayerById(this.media_layer);
             if (mediaLayer) {
                 mediaLayer.opacity = this.formatTooltip(value);
             }
@@ -87,7 +90,7 @@ export default {
                         let element;
                         if(value==='img'){
                             element = new ImageElement({
-                                image: require("./img/fujian230905.png"),
+                                image: require(this.img_url),
                                 georeference: new ExtentAndRotationGeoreference({
                                     extent: new Extent({
                                         xmin: 115.853363,
@@ -102,7 +105,7 @@ export default {
                             });
                         }else if(value==='video'){
                             element = new VideoElement({
-                                video: "https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4",
+                                video: this.video_url,
                                 georeference: new ExtentAndRotationGeoreference({
                                     extent: new Extent({
                                         xmin: -150,
@@ -120,7 +123,7 @@ export default {
                     const layer = new MediaLayer({
                         source: [element],
                         opacity: that.formatTooltip(that.opacity),
-                        id:'media_layer'
+                        id:this.media_layer
                     });
                     map.layers.add(layer);
                     // 跳转到当前图层的范围
@@ -139,7 +142,7 @@ export default {
          * @return {*}
          */
         removeLayer() {
-            const mediaLayer = map.layers.find(layer=>layer.id==="media_layer");
+            const mediaLayer = map.layers.find(layer=>layer.id === this.media_layer);
             if(mediaLayer) {
                 map.layers.remove(mediaLayer);
             }
